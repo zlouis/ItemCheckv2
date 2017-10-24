@@ -49,7 +49,7 @@ var con = mysql.createConnection({
   password: "h2p77aw2aqgmvbyw"
 });
 
-conecting to mysql
+// conecting to mysql
 con.connect(function(err) {
   if (err) throw err;
   console.log("Database connected to the matrix..");
