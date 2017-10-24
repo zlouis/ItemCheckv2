@@ -46,15 +46,14 @@ var con = mysql.createConnection({
   host: "t89yihg12rw77y6f.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
   port: 3306,
   user: "swvr0i1j9ny720mk",
-  password: "h2p77aw2aqgmvbyw",
+  password: "h2p77aw2aqgmvbyw"
 });
 
-//conecting to mysql
-// con.connect(function(err) {
-//   if (err) throw err;
-//   console.log("Database connected to the matrix..");
-//   console.log(err)
-// });
+conecting to mysql
+con.connect(function(err) {
+  if (err) throw err;
+  console.log("Database connected to the matrix..");
+});
 
 con.query('CREATE DATABASE IF NOT EXISTS warehouse', function (err) {
     if (err) throw err;
