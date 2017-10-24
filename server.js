@@ -12,12 +12,27 @@ var hbs = require('hbs');
 var app = express();
 var router = express.Router();
 
-//handlebars
-var handlebars = require('express-handlebars').create({defaultLayout:'main'});
-app.engine('handlebars', handlebars.engine);
-app.set('view engine', 'handlebars');
+
+
+// Serve static content for the app from the "public" directory in the application directory.
+app.use(express.static(__dirname + '/public'));
+
 // override with POST having ?_method=DELETE
 app.use(methodOverride('_method'))
+var exphbs = require('express-handlebars');
+app.engine('handlebars', exphbs({
+    defaultLayout: 'main'
+}));
+
+app.set('view engine', 'handlebars');
+
+
+
+// Parse application/x-www-form-urlencoded
+app.use(logger('dev'));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
 
 // var con = mysql.createConnection({
 //   host: "localhost",
@@ -57,14 +72,10 @@ con.query('CREATE DATABASE IF NOT EXISTS warehouse', function (err) {
     });
 });
 
-// Parse application/x-www-form-urlencoded
-app.use(logger('dev'));
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
 
-
-// Serve static content for the app from the "public" directory in the application directory.
-app.use(express.static(__dirname + '/public'));
+app.get('/', function (req, res) {
+  res.render('index');
+});
 
 
 
@@ -86,7 +97,7 @@ app.post('/submit', function (req, res) {
 });
 
 //GET ROUTE for scraping second link
-router.get('/scrape');
+// router.get('/scrape');
 
 //scrape second link
 app.post('/scrape', function(req, res){
