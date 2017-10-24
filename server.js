@@ -6,7 +6,6 @@ var logger = require('morgan');
 var request = require('request');
 var cheerio = require('cheerio');
 var methodOverride = require('method-override')
-var scrape_controller = require('./controller/scrape_controller.js');
 var fs = require("fs");
 var hbs = require('hbs');
 // Set up Express
