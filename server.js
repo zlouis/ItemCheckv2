@@ -19,15 +19,16 @@ app.set('view engine', 'handlebars');
 // override with POST having ?_method=DELETE
 app.use(methodOverride('_method'))
 
-
+var con = mysql.createConnection(process.env.swvr0i1j9ny720mk:e3lzkqag4dmeqhup@t89yihg12rw77y6f.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/k3ytlat28vo1a055)
 
 // Set up Mysql
-var con = mysql.createConnection({
-  host: "t89yihg12rw77y6f.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-  port: 3306,
-  user: "swvr0i1j9ny720mk",
-  password: "e3lzkqag4dmeqhup",
-});
+// var con = mysql.createConnection({
+
+//   host: "t89yihg12rw77y6f.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+//   port: 3306,
+//   user: "swvr0i1j9ny720mk",
+//   password: "e3lzkqag4dmeqhup",
+// });
 
 //conecting to mysql
 con.connect(function(err) {
