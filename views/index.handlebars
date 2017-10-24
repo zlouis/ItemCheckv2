@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-lg-12">
+      <h1>Warehouse</h1>
+   </div>
+  <div class="col-lg-12">
+     <h3>Saved Links</h3>
+  </div>
+</div>
+<div class="row">
+  <div class="col=lg-12">
+<ul>
+<!--iterate through mysql open connection-->
+  {{#each storage}}
+    <li>
+      <!--delete data entry route-->
+           <form action="/delete?_method=DELETE" method="POST">
+          <input type="hidden" name="id" value="{{this.id}}">
+          <button type="submit">Delete Inventory</button>
+        </form>
+       <p>ID: {{this.id}}</p>
+       <p>Link: {{this.link}}</p>
+       <p>Item: {{this.item}}</p>
+       <p>Stock: {{this.stock}} </p>
+  </li>
+  {{/each}}
+</ul>
+</div>
+</div>
+
