@@ -50,11 +50,11 @@ var con = mysql.createConnection({
 });
 
 //conecting to mysql
-con.connect(function(err) {
-  if (err) throw err;
-  console.log("Database connected to the matrix..");
-  console.log(err)
-});
+// con.connect(function(err) {
+//   if (err) throw err;
+//   console.log("Database connected to the matrix..");
+//   console.log(err)
+// });
 
 con.query('CREATE DATABASE IF NOT EXISTS warehouse', function (err) {
     if (err) throw err;
