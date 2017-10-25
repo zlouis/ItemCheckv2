@@ -47,6 +47,7 @@ var con = mysql.createConnection({
   port: 3306,
   username: "xbl1on8dt15dfhx6",
   password: "nsiqs4qsoci57w1h",
+  database: "warehouse"
 });
 
 // conecting to mysql
