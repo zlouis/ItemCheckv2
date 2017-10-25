@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "scrape.js",
+   "engines": {
+    "node": "= 4.5.0",
+    "npm": "= 3.9.6"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
