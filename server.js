@@ -41,20 +41,20 @@ app.use(bodyParser.json());
 //   password: "",
 // });
 // Set up Mysql
-var con = mysql.createConnection({
+// var con = mysql.createConnection({
 
-  host: "t89yihg12rw77y6f.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-  port: 3306,
-  username: "xbl1on8dt15dfhx6",
-  password: "nsiqs4qsoci57w1h",
-  database: "warehouse"
-});
+//   host: "t89yihg12rw77y6f.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+//   port: 3306,
+//   username: "xbl1on8dt15dfhx6",
+//   password: "nsiqs4qsoci57w1h",
+//   database: "warehouse"
+// });
 
-// conecting to mysql
-con.connect(function(err) {
-  if (err) throw err;
-  console.log("Database connected to the matrix..");
-});
+// // conecting to mysql
+// con.connect(function(err) {
+//   if (err) throw err;
+//   console.log("Database connected to the matrix..");
+// });
 
 // con.query('CREATE DATABASE IF NOT EXISTS warehouse', function (err) {
 //     if (err) throw err;
@@ -190,7 +190,7 @@ app.get('/', function (req, res) {
 // });
 
 // Open Server
-var PORT = process.env.PORT || 3000;
+
 app.listen(process.env.PORT || 3000, function(){
   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
