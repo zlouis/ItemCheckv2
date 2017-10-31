@@ -51,26 +51,26 @@ var con = mysql.createConnection({
 });
 
 // conecting to mysql
-con.connect(function(err) {
-  if (err) throw err;
-  console.log("Database connected to the matrix..");
-});
+// con.connect(function(err) {
+//   if (err) throw err;
+//   console.log("Database connected to the matrix..");
+// });
 
-con.query('CREATE DATABASE IF NOT EXISTS warehouse', function (err) {
-    if (err) throw err;
-    con.query('USE warehouse', function (err) {
-        if (err) throw err;
-        con.query('CREATE TABLE IF NOT EXISTS storage('
-            + 'id INT NOT NULL AUTO_INCREMENT,'
-            + 'PRIMARY KEY(id),'
-            + 'link VARCHAR(255),'
-            + 'item VARCHAR(255),'
-            + 'stock VARCHAR(255)'
-            +  ')', function (err) {
-                if (err) throw err;
-            });
-    });
-});
+// con.query('CREATE DATABASE IF NOT EXISTS warehouse', function (err) {
+//     if (err) throw err;
+//     con.query('USE warehouse', function (err) {
+//         if (err) throw err;
+//         con.query('CREATE TABLE IF NOT EXISTS storage('
+//             + 'id INT NOT NULL AUTO_INCREMENT,'
+//             + 'PRIMARY KEY(id),'
+//             + 'link VARCHAR(255),'
+//             + 'item VARCHAR(255),'
+//             + 'stock VARCHAR(255)'
+//             +  ')', function (err) {
+//                 if (err) throw err;
+//             });
+//     });
+// });
 
 
 app.get('/', function (req, res) {

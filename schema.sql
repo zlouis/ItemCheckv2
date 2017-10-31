@@ -1,5 +1,5 @@
 CREATE DATABASE warehouse;
-USE mywarehouse;
+USE warehouse;
 
 CREATE TABLE storage
 (
