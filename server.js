@@ -47,7 +47,7 @@ var con = mysql.createConnection({
   port: 3306,
   user: "f6jgyt7ghimw98xo",
   password: "w9pl9g8rh8e8u1qu",
-  database: "ytgkcbpvgvrlvfs4"
+  database: "warehouse"
 });
 
 // conecting to mysql
@@ -56,21 +56,21 @@ con.connect(function(err) {
   console.log("Database connected to the matrix..");
 });
 
-// con.query('CREATE DATABASE IF NOT EXISTS warehouse', function (err) {
-//     if (err) throw err;
-//     con.query('USE warehouse', function (err) {
-//         if (err) throw err;
-//         con.query('CREATE TABLE IF NOT EXISTS storage('
-//             + 'id INT NOT NULL AUTO_INCREMENT,'
-//             + 'PRIMARY KEY(id),'
-//             + 'link VARCHAR(255),'
-//             + 'item VARCHAR(255),'
-//             + 'stock VARCHAR(255)'
-//             +  ')', function (err) {
-//                 if (err) throw err;
-//             });
-//     });
-// });
+con.query('CREATE DATABASE warehouse', function (err) {
+    if (err) throw err;
+    con.query('USE warehouse', function (err) {
+        if (err) throw err;
+        con.query('CREATE TABLE IF NOT EXISTS storage('
+            + 'id INT NOT NULL AUTO_INCREMENT,'
+            + 'PRIMARY KEY(id),'
+            + 'link VARCHAR(255),'
+            + 'item VARCHAR(255),'
+            + 'stock VARCHAR(255)'
+            +  ')', function (err) {
+                if (err) throw err;
+            });
+    });
+});
 
 
 app.get('/', function (req, res) {

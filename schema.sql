@@ -1,4 +1,4 @@
-CREATE DATABASE mywarehouse;
+CREATE DATABASE warehouse;
 USE mywarehouse;
 
 CREATE TABLE storage
@@ -8,4 +8,4 @@ PRIMARY KEY(id),
 link VARCHAR(255),
 item VARCHAR(255),
 stock VARCHAR(255)
-);
+);  
