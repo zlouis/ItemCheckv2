@@ -51,26 +51,26 @@ var connect = mysql.createConnection({
 });
 
 // conecting to mysql
-// connect.connect(function(err) {
-//     if (err) {
-//         console.error('error connecting: ' + err.stack);
-//         return;
-//     }
-//     console.log('connected as id ' + connection.threadId);
-// });
+connect.connect(function(err) {
+    if (err) {
+        console.error('error connecting: this aintn working yoooooooooooo ' + err.stack);
+        return;
+    }
+    console.log('connected as id ' + connection.threadId);
+});
 
-    connect.query('USE l80k3j1waol9ialw', function (err) {
-        if (err) throw err;
-        connect.query('CREATE TABLE IF NOT EXISTS storage('
-            + 'id INT NOT NULL AUTO_INCREMENT,'
-            + 'PRIMARY KEY(id),'
-            + 'link VARCHAR(255),'
-            + 'item VARCHAR(255),'
-            + 'stock VARCHAR(255)'
-            +  ')', function (err) {
-                if (err) throw err;
-            });
-    });
+    // connect.query('USE l80k3j1waol9ialw', function (err) {
+    //     if (err) throw err;
+    //     connect.query('CREATE TABLE IF NOT EXISTS storage('
+    //         + 'id INT NOT NULL AUTO_INCREMENT,'
+    //         + 'PRIMARY KEY(id),'
+    //         + 'link VARCHAR(255),'
+    //         + 'item VARCHAR(255),'
+    //         + 'stock VARCHAR(255)'
+    //         +  ')', function (err) {
+    //             if (err) throw err;
+    //         });
+    // });
 
 app.get('/', function (req, res) {
   res.render('index');
