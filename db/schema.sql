@@ -1,4 +1,4 @@
-CREATE database IF NOT EXSITS warehouse;
+CREATE schema IF NOT EXSITS warehouse;
 USE warehouse;
 
 DROP TABLE IF EXISTS warehouse;
