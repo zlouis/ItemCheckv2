@@ -1,4 +1,4 @@
-CREATE DATABASE IF NOT EXSITS warehouse;
+CREATE database IF NOT EXSITS warehouse;
 USE warehouse;
 
 DROP TABLE IF EXISTS warehouse;
