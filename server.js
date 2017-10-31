@@ -59,8 +59,6 @@ var connect = mysql.createConnection({
 //     console.log('connected as id ' + connection.threadId);
 // });
 
-connect.query('CREATE DATABASE IF NOT EXISTS l80k3j1waol9ialw', function (err) {
-    if (err) throw err;
     connect.query('USE l80k3j1waol9ialw', function (err) {
         if (err) throw err;
         connect.query('CREATE TABLE IF NOT EXISTS storage('
@@ -73,8 +71,6 @@ connect.query('CREATE DATABASE IF NOT EXISTS l80k3j1waol9ialw', function (err) {
                 if (err) throw err;
             });
     });
-});
-
 
 app.get('/', function (req, res) {
   res.render('index');
