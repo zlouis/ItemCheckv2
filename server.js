@@ -59,21 +59,21 @@ con.connect(function(err) {
     console.log('connected as id ' + connection.threadId);
 });
 
-con.query('CREATE DATABASE IF NOT EXISTS l80k3j1waol9ialw', function (err) {
-    if (err) throw err;
-    con.query('USE l80k3j1waol9ialw', function (err) {
-        if (err) throw err;
-        con.query('CREATE TABLE IF NOT EXISTS storage('
-            + 'id INT NOT NULL AUTO_INCREMENT,'
-            + 'PRIMARY KEY(id),'
-            + 'link VARCHAR(255),'
-            + 'item VARCHAR(255),'
-            + 'stock VARCHAR(255)'
-            +  ')', function (err) {
-                if (err) throw err;
-            });
-    });
-});
+// con.query('CREATE DATABASE IF NOT EXISTS l80k3j1waol9ialw', function (err) {
+//     if (err) throw err;
+//     con.query('USE l80k3j1waol9ialw', function (err) {
+//         if (err) throw err;
+//         con.query('CREATE TABLE IF NOT EXISTS storage('
+//             + 'id INT NOT NULL AUTO_INCREMENT,'
+//             + 'PRIMARY KEY(id),'
+//             + 'link VARCHAR(255),'
+//             + 'item VARCHAR(255),'
+//             + 'stock VARCHAR(255)'
+//             +  ')', function (err) {
+//                 if (err) throw err;
+//             });
+//     });
+// });
 
 
 app.get('/', function (req, res) {
