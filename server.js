@@ -43,11 +43,11 @@ app.use(bodyParser.json());
 // Set up Mysql
 var con = mysql.createConnection({
 
-  host: "l9y2756xgz89s7b9",
+  host: "sulnwdk5uwjw1r2k.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
   port: 3306,
-  username: "xbl1on8dt15dfhx6",
-  password: "nsiqs4qsoci57w1h",
-  database: "warehouse"
+  username: "f6jgyt7ghimw98xo",
+  password: "w9pl9g8rh8e8u1qu",
+  database: "ytgkcbpvgvrlvfs4"
 });
 
 // conecting to mysql
