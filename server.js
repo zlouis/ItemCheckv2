@@ -45,7 +45,7 @@ var con = mysql.createConnection({
 
   host: "sulnwdk5uwjw1r2k.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
   port: 3306,
-  username: "f6jgyt7ghimw98xo",
+  user: "f6jgyt7ghimw98xo",
   password: "w9pl9g8rh8e8u1qu",
   database: "ytgkcbpvgvrlvfs4"
 });
