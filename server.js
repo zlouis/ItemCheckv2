@@ -33,6 +33,20 @@ app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+var connection;
+
+if(process.env.JAWSDB_URL) {
+  connection=mysql.createConnection(process.env.JAWSDB_URL)
+} else {
+  connection=mysql.createConnection({
+    root:300,
+    host:"localhost",
+    user:"root",
+    password:"",
+  })
+}
+
+
 
 // var con = mysql.createConnection({
 //   host: "localhost",
@@ -41,14 +55,16 @@ app.use(bodyParser.json());
 //   password: "",
 // });
 // Set up Mysql
-var connect = mysql.createConnection({
+// var connect = mysql.createConnection({
 
-  host: "ysp9sse09kl0tzxj.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-  port: 3306,
-  user: " dppwdlfvwb73o8gb",
-  password: "zhb7s1mfjp0xy4jx",
-  database: "l80k3j1waol9ialw"
-});
+//   host: "ysp9sse09kl0tzxj.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+//   port: 3306,
+//   user: " dppwdlfvwb73o8gb",
+//   password: "zhb7s1mfjp0xy4jx",
+//   database: "l80k3j1waol9ialw"
+// });
+
+
 
 // conecting to mysql
 // connect.connect(function(err) {
@@ -59,18 +75,18 @@ var connect = mysql.createConnection({
 //     console.log('connected as id ' + connection.threadId);
 // });
 
-    // connect.query('USE l80k3j1waol9ialw', function (err) {
-    //     if (err) throw err;
-    //     connect.query('CREATE TABLE IF NOT EXISTS storage('
-    //         + 'id INT NOT NULL AUTO_INCREMENT,'
-    //         + 'PRIMARY KEY(id),'
-    //         + 'link VARCHAR(255),'
-    //         + 'item VARCHAR(255),'
-    //         + 'stock VARCHAR(255)'
-    //         +  ')', function (err) {
-    //             if (err) throw err;
-    //         });
-    // });
+    connection.query('USE l80k3j1waol9ialw', function (err) {
+        if (err) throw err;
+        connection.query('CREATE TABLE IF NOT EXISTS storage('
+            + 'id INT NOT NULL AUTO_INCREMENT,'
+            + 'PRIMARY KEY(id),'
+            + 'link VARCHAR(255),'
+            + 'item VARCHAR(255),'
+            + 'stock VARCHAR(255)'
+            +  ')', function (err) {
+                if (err) throw err;
+            });
+    });
 
 app.get('/', function (req, res) {
   res.render('index');
@@ -86,7 +102,7 @@ app.post('/submit', function (req, res) {
    var createItem = {
 
    }
-    connect.query('INSERT INTO links SET ?', createLink,
+    connection.query('INSERT INTO links SET ?', createLink,
         function (err, result) {
             if (err) throw err;
             console.log(req.body)
@@ -146,7 +162,7 @@ app.post('/scrape', function(req, res){
 
       })
         var sql= "INSERT INTO storage (link, item, stock) VALUES ('" +createUrl.link +"','"+createItem.item+"','"+json.reviews+"')"
-        connect.query(sql,
+        connection.query(sql,
         function (err, result) {
             if (err) throw err;
             console.log(req.body)
@@ -167,7 +183,7 @@ app.post('/scrape', function(req, res){
 //prints database to page
 app.get('/index', function(req,res) {
 
-    connect.query('SELECT * FROM storage;', function(err, data) {
+    connection.query('SELECT * FROM storage;', function(err, data) {
       if (err) throw err;
 
       //test it
@@ -182,7 +198,7 @@ app.get('/index', function(req,res) {
 
 //delete data entry
 app.delete('/delete', function(req,res){
-    connect.query('DELETE FROM storage WHERE id = ?', [req.body.id], function(err, result) {
+    connection.query('DELETE FROM storage WHERE id = ?', [req.body.id], function(err, result) {
       if (err) throw err;
       res.redirect('/index');
     });
