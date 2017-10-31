@@ -52,8 +52,11 @@ var con = mysql.createConnection({
 
 //conecting to mysql
 con.connect(function(err) {
-  if (err) throw err;
-  console.log("Database connected to the matrix...");
+    if (err) {
+        console.error('error connecting: ' + err.stack);
+        return;
+    }
+    console.log('connected as id ' + connection.threadId);
 });
 
 // con.query('CREATE DATABASE IF NOT EXISTS warehouse', function (err) {
