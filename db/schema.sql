@@ -1,5 +1,7 @@
-CREATE DATABASE warehouse;
+CREATE DATABASE IF NOT EXSITS warehouse;
 USE warehouse;
+
+DROP TABLE IF EXISTS warehouse;
 
 CREATE TABLE storage
 (
