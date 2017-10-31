@@ -51,13 +51,13 @@ var connect = mysql.createConnection({
 });
 
 // conecting to mysql
-connect.connect(function(err) {
-    if (err) {
-        console.error('error connecting: this aintn working yoooooooooooo ' + err.stack);
-        return;
-    }
-    console.log('connected as id ' + connection.threadId);
-});
+// connect.connect(function(err) {
+//     if (err) {
+//         console.error('error connecting: this aintn working ' + err.stack);
+//         return;
+//     }
+//     console.log('connected as id ' + connection.threadId);
+// });
 
     // connect.query('USE l80k3j1waol9ialw', function (err) {
     //     if (err) throw err;
