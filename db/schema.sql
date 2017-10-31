@@ -1,4 +1,5 @@
-CREATE DATABASE IF NOT EXSITS warehouse;
+CREATE DATABASE IF NOT EXISTS warehouse;
+
 USE warehouse;
 
 DROP TABLE IF EXISTS warehouse;
@@ -11,3 +12,4 @@ link VARCHAR(255),
 item VARCHAR(255),
 stock VARCHAR(255)
 );  
+
