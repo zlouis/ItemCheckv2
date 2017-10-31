@@ -1,6 +1,6 @@
-CREATE DATABASE IF NOT EXISTS r57w6qhdgndr95mv;
+CREATE DATABASE IF NOT EXISTS l80k3j1waol9ialw;
 
-USE r57w6qhdgndr95mv;
+USE l80k3j1waol9ialw;
 
 DROP TABLE IF EXISTS storage;
 
