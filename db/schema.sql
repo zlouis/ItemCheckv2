@@ -1,8 +1,8 @@
-CREATE DATABASE IF NOT EXISTS warehouse;
+CREATE DATABASE IF NOT EXISTS r57w6qhdgndr95mv;
 
-USE warehouse;
+USE r57w6qhdgndr95mv;
 
-DROP TABLE IF EXISTS warehouse;
+DROP TABLE IF EXISTS storage;
 
 CREATE TABLE storage
 (
