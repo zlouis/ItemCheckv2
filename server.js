@@ -51,13 +51,13 @@ var con = mysql.createConnection({
 });
 
 // conecting to mysql
-con.connect(function(err) {
-    if (err) {
-        console.error('error connecting: ' + err.stack);
-        return;
-    }
-    console.log('connected as id ' + connection.threadId);
-});
+// con.connect(function(err) {
+//     if (err) {
+//         console.error('error connecting: ' + err.stack);
+//         return;
+//     }
+//     console.log('connected as id ' + connection.threadId);
+// });
 
 // con.query('CREATE DATABASE IF NOT EXISTS l80k3j1waol9ialw', function (err) {
 //     if (err) throw err;
