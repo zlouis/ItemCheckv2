@@ -1,5 +1,3 @@
-CREATE DATABASE IF NOT EXISTS l80k3j1waol9ialw;
-
 USE l80k3j1waol9ialw;
 
 DROP TABLE IF EXISTS storage;
