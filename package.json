@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "scrape.js",
-   "engines": {
+  "engines": {
     "node": "= 8.7.0",
     "npm": "= 5.4.2"
   },
