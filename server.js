@@ -41,7 +41,7 @@ app.use(bodyParser.json());
 //   password: "",
 // });
 // Set up Mysql
-var con = mysql.createConnection({
+var connect = mysql.createConnection({
 
   host: "ysp9sse09kl0tzxj.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
   port: 3306,
@@ -51,19 +51,19 @@ var con = mysql.createConnection({
 });
 
 // conecting to mysql
-// con.connect(function(err) {
-//     if (err) {
-//         console.error('error connecting: ' + err.stack);
-//         return;
-//     }
-//     console.log('connected as id ' + connection.threadId);
-// });
+connect.connect(function(err) {
+    if (err) {
+        console.error('error connecting: ' + err.stack);
+        return;
+    }
+    console.log('connected as id ' + connection.threadId);
+});
 
-// con.query('CREATE DATABASE IF NOT EXISTS l80k3j1waol9ialw', function (err) {
+// connect.query('CREATE DATABASE IF NOT EXISTS l80k3j1waol9ialw', function (err) {
 //     if (err) throw err;
-//     con.query('USE l80k3j1waol9ialw', function (err) {
+//     connect.query('USE l80k3j1waol9ialw', function (err) {
 //         if (err) throw err;
-//         con.query('CREATE TABLE IF NOT EXISTS storage('
+//         connect.query('CREATE TABLE IF NOT EXISTS storage('
 //             + 'id INT NOT NULL AUTO_INCREMENT,'
 //             + 'PRIMARY KEY(id),'
 //             + 'link VARCHAR(255),'
@@ -90,7 +90,7 @@ app.post('/submit', function (req, res) {
    var createItem = {
 
    }
-    con.query('INSERT INTO links SET ?', createLink,
+    connect.query('INSERT INTO links SET ?', createLink,
         function (err, result) {
             if (err) throw err;
             console.log(req.body)
@@ -150,7 +150,7 @@ app.post('/scrape', function(req, res){
 
       })
         var sql= "INSERT INTO storage (link, item, stock) VALUES ('" +createUrl.link +"','"+createItem.item+"','"+json.reviews+"')"
-        con.query(sql,
+        connect.query(sql,
         function (err, result) {
             if (err) throw err;
             console.log(req.body)
@@ -171,7 +171,7 @@ app.post('/scrape', function(req, res){
 //prints database to page
 app.get('/index', function(req,res) {
 
-    con.query('SELECT * FROM storage;', function(err, data) {
+    connect.query('SELECT * FROM storage;', function(err, data) {
       if (err) throw err;
 
       //test it
@@ -186,7 +186,7 @@ app.get('/index', function(req,res) {
 
 //delete data entry
 app.delete('/delete', function(req,res){
-    con.query('DELETE FROM storage WHERE id = ?', [req.body.id], function(err, result) {
+    connect.query('DELETE FROM storage WHERE id = ?', [req.body.id], function(err, result) {
       if (err) throw err;
       res.redirect('/index');
     });
