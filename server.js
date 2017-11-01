@@ -74,6 +74,19 @@ if(process.env.JAWSDB_URL) {
 //     }
 //     console.log('connected as id ' + connection.threadId);
 // });
+    //local database testing
+    // connection.query('USE warehouse', function (err) {
+    //     if (err) throw err;
+    //     connection.query('CREATE TABLE IF NOT EXISTS storage('
+    //         + 'id INT NOT NULL AUTO_INCREMENT,'
+    //         + 'PRIMARY KEY(id),'
+    //         + 'link VARCHAR(255),'
+    //         + 'item VARCHAR(255),'
+    //         + 'stock VARCHAR(255)'
+    //         +  ')', function (err) {
+    //             if (err) throw err;
+    //         });
+    // });
 
     connection.query('USE l80k3j1waol9ialw', function (err) {
         if (err) throw err;
@@ -134,31 +147,29 @@ app.post('/scrape', function(req, res){
       if(!err){
        var $= cheerio.load(html);
 
-      var reviews;
+  
       var json ={
         reviews:"",
       };
+
       //captures target
       $('#reviews-text').filter(function(){
         //Holds data
         var data=$(this)
-
-
-
-
         reviews = data.text();
+        console.log(reviews)
         createJson=reviews;
+        console.log(createJson)
         json.reviews=reviews;
+        console.log(json.reviews)
+
 
         if(json.reviews === "Reviews") {
           console.log("reviewed checked and item has review")
         } else {
           console.log("No reviews availible")
 
-
         }
-
-     
 
       })
         var sql= "INSERT INTO storage (link, item, stock) VALUES ('" +createUrl.link +"','"+createItem.item+"','"+json.reviews+"')"
