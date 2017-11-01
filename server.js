@@ -166,7 +166,7 @@ app.post('/scrape', function(req, res){
         function (err, result) {
             if (err) throw err;
             console.log(req.body)
-            res.send('Link added to database with ID: ' + result.insertId + " " + "go to /index to see database");
+            res.send('Link added to database with ID: ' + result.insertId + " " + "go to https://possessed-spell-88283.herokuapp.com/index to see database");
         }
     );
     }
