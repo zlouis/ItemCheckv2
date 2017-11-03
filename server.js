@@ -75,31 +75,31 @@ if(process.env.JAWSDB_URL) {
 //     console.log('connected as id ' + connection.threadId);
 // });
     //local database testing
-    // connection.query('USE warehouse', function (err) {
-    //     if (err) throw err;
-    //     connection.query('CREATE TABLE IF NOT EXISTS storage('
-    //         + 'id INT NOT NULL AUTO_INCREMENT,'
-    //         + 'PRIMARY KEY(id),'
-    //         + 'link VARCHAR(255),'
-    //         + 'item VARCHAR(255),'
-    //         + 'stock VARCHAR(255)'
-    //         +  ')', function (err) {
-    //             if (err) throw err;
-    //         });
-    // });
+    connection.query('USE warehouse', function (err) {
+        if (err) throw err;
+        connection.query('CREATE TABLE IF NOT EXISTS storage('
+            + 'id INT NOT NULL AUTO_INCREMENT,'
+            + 'PRIMARY KEY(id),'
+            + 'link VARCHAR(255),'
+            + 'item VARCHAR(255),'
+            + 'stock VARCHAR(255)'
+            +  ')', function (err) {
+                if (err) throw err;
+            });
+    });
 
-      connection.query('USE l80k3j1waol9ialw', function (err) {
-          if (err) throw err;
-          connection.query('CREATE TABLE IF NOT EXISTS storage('
-              + 'id INT NOT NULL AUTO_INCREMENT,'
-              + 'PRIMARY KEY(id),'
-              + 'link VARCHAR(255),'
-              + 'item VARCHAR(255),'
-              + 'stock VARCHAR(255)'
-              +  ')', function (err) {
-                  if (err) throw err;
-              });
-      });
+      // connection.query('USE l80k3j1waol9ialw', function (err) {
+      //     if (err) throw err;
+      //     connection.query('CREATE TABLE IF NOT EXISTS storage('
+      //         + 'id INT NOT NULL AUTO_INCREMENT,'
+      //         + 'PRIMARY KEY(id),'
+      //         + 'link VARCHAR(255),'
+      //         + 'item VARCHAR(255),'
+      //         + 'stock VARCHAR(255)'
+      //         +  ')', function (err) {
+      //             if (err) throw err;
+      //         });
+      // });
 
 app.get('/', function (req, res) {
   res.render('index');
@@ -175,10 +175,12 @@ app.post('/scrape', function(req, res){
           console.log("no"+ "" +captureReview)
         }
 
+        
+
      
 
       })
-    }
+    } 
 
 
 
@@ -227,3 +229,59 @@ app.listen(process.env.PORT || 3000, function(){
   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
 
+
+//update server data
+// app.get('/update', function req,res) {
+
+//   connection.query('UPDATE link FROM storage', function (err, result) {
+//     if (err) throw err;
+//     res.send(url)
+//   })
+
+//   for (var i =0;i< url.length; i ++) {
+//        request(url, function(err, response, html) {
+
+//       if(!err){
+//        var $= cheerio.load(html);
+
+//       var reviews;
+  
+//       //captures target
+//       $('#reviews-text').filter(function(){
+//         //Holds data
+//         var data=$(this)
+
+//         reviews = data.text();
+//         createJson.reviews=reviews;
+//         captureReview=reviews;
+
+//         if(captureReview === "Reviews") {
+//           console.log("Has"+ "" +captureReview)
+//         var sql= "INSERT INTO storage (link, item, stock) VALUES ('" +createUrl.link +"','"+createItem.item+"','"+captureReview+"')"
+//         connection.query(sql,
+//         function (err, result) {
+//             if (err) throw err;
+//             console.log(req.body)
+//             res.send('Link added to database with ID: ' + result.insertId + " " + "go to /index to see database");
+//         }
+//     );
+//         } else {
+//           console.log("no"+ "" +captureReview)
+//         }
+
+        
+
+     
+
+//       })
+//     } 
+
+
+
+//   })
+
+//   }
+
+
+// }
+//   
