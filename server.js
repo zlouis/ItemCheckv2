@@ -214,70 +214,70 @@ app.delete('/delete', function(req,res){
 });
 
 //update server data
-app.get('/update', function (req,res) {
+// app.get('/update', function (req,res) {
 
 
-  URL=req.body.link
-  itemNumber=req.body.itemNum
-   console.log(itemNumber)
-    var createJson= {
-    reviews:"",
-  }
+//   URL=req.body.link
+//   itemNumber=req.body.itemNum
+//    console.log(itemNumber)
+//     var createJson= {
+//     reviews:"",
+//   }
   
-       request(URL, function(err, response, html) {
+//        request(URL, function(err, response, html) {
 
-      if(!err){
-       var $= cheerio.load(html);
+//       if(!err){
+//        var $= cheerio.load(html);
 
-      var reviews;
+//       var reviews;
   
-      //captures target
-      $('#reviews-text').filter(function(){
-        //Holds data
-        var data=$(this)
+//       //captures target
+//       $('#reviews-text').filter(function(){
+//         //Holds data
+//         var data=$(this)
 
-        reviews = data.text();
-        createJson.reviews=reviews;
-        captureReview=reviews;
-        console.log("I AM WORKING HERE" +" "+ reviews+ "with" + " "+ itemNumber)
+//         reviews = data.text();
+//         createJson.reviews=reviews;
+//         captureReview=reviews;
+//         console.log("I AM WORKING HERE" +" "+ reviews+ "with" + " "+ itemNumber)
 
-        if(captureReview === "Reviews") {
-        console.log("Has"+ "" +captureReview)
-        var sql= "UPDATE storage SET STOCK='" + createJson.reviews + "' "+"WHERE ID=" + itemNumber
-               connection.query(sql, function (err, result) {
-            if (err) throw err;
+//         if(captureReview === "Reviews") {
+//         console.log("Has"+ "" +captureReview)
+//         var sql= "UPDATE storage SET STOCK='" + createJson.reviews + "' "+"WHERE ID=" + itemNumber
+//                connection.query(sql, function (err, result) {
+//             if (err) throw err;
    
-             res.redirect('/index');
-            // res.send('Link added to database with ID: ' + result.insertId + " " + "go to /index to see database");
+//              res.redirect('/index');
+//             // res.send('Link added to database with ID: ' + result.insertId + " " + "go to /index to see database");
 
-        })
-      }
-    });
+//         })
+//       }
+//     });
 
-      $('.server-error').filter(function() {
-         var data=$(this)
+//       $('.server-error').filter(function() {
+//          var data=$(this)
 
-        reviews = data.text();
-        createJson.reviews=reviews;
-        captureReview=reviews;
-        console.log("I AM WORKING HERE" +" "+ reviews+ "with" + " "+ itemNumber)
+//         reviews = data.text();
+//         createJson.reviews=reviews;
+//         captureReview=reviews;
+//         console.log("I AM WORKING HERE" +" "+ reviews+ "with" + " "+ itemNumber)
 
-        if(captureReview === "Reviews") {
-        console.log("Has"+ "" +captureReview)
-        var sql= "UPDATE storage SET STOCK='" + createJson.reviews + "' "+"WHERE ID=" + itemNumber
-               connection.query(sql, function (err, result) {
-            if (err) throw err;
+//         if(captureReview === "Reviews") {
+//         console.log("Has"+ "" +captureReview)
+//         var sql= "UPDATE storage SET STOCK='" + createJson.reviews + "' "+"WHERE ID=" + itemNumber
+//                connection.query(sql, function (err, result) {
+//             if (err) throw err;
    
-             res.redirect('/index');
-            // res.send('Link added to database with ID: ' + result.insertId + " " + "go to /index to see database");
+//              res.redirect('/index');
+//             // res.send('Link added to database with ID: ' + result.insertId + " " + "go to /index to see database");
 
-      })
-    }
-  })
-     }
-   }
-   )
-     })
+//       })
+//     }
+//   })
+//      }
+//    }
+//    )
+//      })
 
 
 
