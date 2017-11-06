@@ -24,7 +24,7 @@ app.engine('handlebars', exphbs({
     defaultLayout: 'main'
 }));
 
-adsf
+
 
 
 app.set('view engine', 'handlebars');
