@@ -55,14 +55,14 @@ if(process.env.JAWSDB_URL) {
 //   password: "",
 // });
 // Set up Mysql
-var connect = mysql.createConnection({
+// var connect = mysql.createConnection({
 
-  host: "ysp9sse09kl0tzxj.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-  port: 3306,
-  user: " dppwdlfvwb73o8gb",
-  password: "zhb7s1mfjp0xy4jx",
-  database: "l80k3j1waol9ialw"
-});
+//   host: "ysp9sse09kl0tzxj.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+//   port: 3306,
+//   user: " dppwdlfvwb73o8gb",
+//   password: "zhb7s1mfjp0xy4jx",
+//   database: "l80k3j1waol9ialw"
+// });
 
 
 
@@ -178,33 +178,33 @@ app.post('/scrape', function(req, res){
         
 
       })
-        $('.server-error').filter(function() {
-              //Holds data
-        var data=$(this)
+    //     $('.server-error').filter(function() {
+    //           //Holds data
+    //     var data=$(this)
 
-        reviews = data.text();
-        createJson.reviews=reviews;
-        captureReview=reviews;
+    //     reviews = data.text();
+    //     createJson.reviews=reviews;
+    //     captureReview=reviews;
 
-        if(captureReview != "Reviews") {
-        console.log("Has"+ "" +captureReview)
-        var sql= "INSERT INTO storage (link, item, stock) VALUES ('" +createUrl.link +"','"+createItem.item+"','"+captureReview+"')"
-        connection.query(sql,
-        function (err, result) {
-            if (err) throw err;
-            console.log(req.body)
-            res.send('Link added to database with ID: ' + result.insertId + " " + "go to /index to see database");
-        }
-    );
-        } else {
-          console.log("no"+ "" +captureReview)
-        }
+    //     if(captureReview != "Reviews") {
+    //     console.log("Has"+ "" +captureReview)
+    //     var sql= "INSERT INTO storage (link, item, stock) VALUES ('" +createUrl.link +"','"+createItem.item+"','"+captureReview+"')"
+    //     connection.query(sql,
+    //     function (err, result) {
+    //         if (err) throw err;
+    //         console.log(req.body)
+    //         res.send('Link added to database with ID: ' + result.insertId + " " + "go to /index to see database");
+    //     }
+    // );
+    //     } else {
+    //       console.log("no"+ "" +captureReview)
+    //     }
 
         
 
      
 
-      })
+    //   })
     } 
 
   })
