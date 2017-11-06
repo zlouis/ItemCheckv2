@@ -43,6 +43,7 @@ if(process.env.JAWSDB_URL) {
     host:"localhost",
     user:"root",
     password:"",
+    database:'warehouse'
   })
 }
 
@@ -63,18 +64,18 @@ if(process.env.JAWSDB_URL) {
     //         });
     // });
 
-      connection.query('USE l80k3j1waol9ialw', function (err) {
-          if (err) throw err;
-          connection.query('CREATE TABLE IF NOT EXISTS storage('
-              + 'id INT NOT NULL AUTO_INCREMENT,'
-              + 'PRIMARY KEY(id),'
-              + 'link VARCHAR(255),'
-              + 'item VARCHAR(255),'
-              + 'stock VARCHAR(255)'
-              +  ')', function (err) {
-                  if (err) throw err;
-              });
-      });
+      // connection.query('USE l80k3j1waol9ialw', function (err) {
+      //     if (err) throw err;
+      //     connection.query('CREATE TABLE IF NOT EXISTS storage('
+      //         + 'id INT NOT NULL AUTO_INCREMENT,'
+      //         + 'PRIMARY KEY(id),'
+      //         + 'link VARCHAR(255),'
+      //         + 'item VARCHAR(255),'
+      //         + 'stock VARCHAR(255)'
+      //         +  ')', function (err) {
+      //             if (err) throw err;
+      //         });
+      // });
 
 app.get('/', function (req, res) {
   res.render('index');
