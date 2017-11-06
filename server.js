@@ -186,7 +186,7 @@ app.delete('/delete', function(req,res){
 });
 
 //update server data
-app.get('/update', function (req,res) {
+app.update('/update', function (req,res) {
 
 
   URL=req.body.link
