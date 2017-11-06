@@ -48,32 +48,7 @@ if(process.env.JAWSDB_URL) {
 
 
 
-// var con = mysql.createConnection({
-//   host: "localhost",
-//   port: 3306,
-//   user: "root",
-//   password: "",
-// });
-// Set up Mysql
-// var connect = mysql.createConnection({
 
-//   host: "ysp9sse09kl0tzxj.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-//   port: 3306,
-//   user: " dppwdlfvwb73o8gb",
-//   password: "zhb7s1mfjp0xy4jx",
-//   database: "l80k3j1waol9ialw"
-// });
-
-
-
-// conecting to mysql
-// connect.connect(function(err) {
-//     if (err) {
-//         console.error('error connecting: this aintn working ' + err.stack);
-//         return;
-//     }
-//     console.log('connected as id ' + connection.threadId);
-// });
     //local database testing
     // connection.query('USE warehouse', function (err) {
     //     if (err) throw err;
