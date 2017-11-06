@@ -277,26 +277,26 @@ app.get('/update', function (req,res) {
       }
     });
 
-      $('.server-error').filter(function() {
-         var data=$(this)
+  //     $('.server-error').filter(function() {
+  //        var data=$(this)
 
-        reviews = data.text();
-        createJson.reviews=reviews;
-        captureReview=reviews;
-        console.log("I AM WORKING HERE" +" "+ reviews+ "with" + " "+ itemNumber)
+  //       reviews = data.text();
+  //       createJson.reviews=reviews;
+  //       captureReview=reviews;
+  //       console.log("I AM WORKING HERE" +" "+ reviews+ "with" + " "+ itemNumber)
 
-        if(captureReview === "Reviews") {
-        console.log("Has"+ "" +captureReview)
-        var sql= "UPDATE storage SET STOCK='" + createJson.reviews + "' "+"WHERE ID=" + itemNumber
-               connection.query(sql, function (err, result) {
-            if (err) throw err;
+  //       if(captureReview === "Reviews") {
+  //       console.log("Has"+ "" +captureReview)
+  //       var sql= "UPDATE storage SET STOCK='" + createJson.reviews + "' "+"WHERE ID=" + itemNumber
+  //              connection.query(sql, function (err, result) {
+  //           if (err) throw err;
    
-             res.redirect('/index');
-            // res.send('Link added to database with ID: ' + result.insertId + " " + "go to /index to see database");
+  //            res.redirect('/index');
+  //           // res.send('Link added to database with ID: ' + result.insertId + " " + "go to /index to see database");
 
-      })
-    }
-  })
+  //     })
+  //   }
+  // })
      }
    }
    )
