@@ -178,33 +178,33 @@ app.post('/scrape', function(req, res){
         
 
       })
-        $('.server-error').filter(function() {
-              //Holds data
-        var data=$(this)
+    //     $('.server-error').filter(function() {
+    //           //Holds data
+    //     var data=$(this)
 
-        reviews = data.text();
-        createJson.reviews=reviews;
-        captureReview=reviews;
+    //     reviews = data.text();
+    //     createJson.reviews=reviews;
+    //     captureReview=reviews;
 
-        if(captureReview != "Reviews") {
-        console.log("Has"+ "" +captureReview)
-        var sql= "INSERT INTO storage (link, item, stock) VALUES ('" +createUrl.link +"','"+createItem.item+"','"+captureReview+"')"
-        connection.query(sql,
-        function (err, result) {
-            if (err) throw err;
-            console.log(req.body)
-            res.send('Link added to database with ID: ' + result.insertId + " " + "go to /index to see database");
-        }
-    );
-        } else {
-          console.log("no"+ "" +captureReview)
-        }
+    //     if(captureReview != "Reviews") {
+    //     console.log("Has"+ "" +captureReview)
+    //     var sql= "INSERT INTO storage (link, item, stock) VALUES ('" +createUrl.link +"','"+createItem.item+"','"+captureReview+"')"
+    //     connection.query(sql,
+    //     function (err, result) {
+    //         if (err) throw err;
+    //         console.log(req.body)
+    //         res.send('Link added to database with ID: ' + result.insertId + " " + "go to /index to see database");
+    //     }
+    // );
+    //     } else {
+    //       console.log("no"+ "" +captureReview)
+    //     }
 
         
 
      
 
-      })
+    //   })
     } 
 
   })
