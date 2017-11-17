@@ -1,6 +1,6 @@
 # ItemCheckv2
 
-Plugin site to be scraped for current review and checks for stock.
+A basic plugin site to be scraped for current review and checks for stock.
 
 Using a form, user inputs unique URL to check for reivews/stock. Saves the item to database and items can be refreshed to check if it is still in stock at targeted webpage.
 
